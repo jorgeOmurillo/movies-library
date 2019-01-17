@@ -4,8 +4,8 @@ export const setTextFilter = (text = '') => ({
   text
 });
 
-// FILTER_BY_REGION
-export const filterByRegion = (filterBy = '') => ({
-  type: 'FILTER_BY_REGION',
+// FILTER_BY_GENRE
+export const filterByGenre = (filterBy = '') => ({
+  type: 'FILTER_BY_GENRE',
   filterBy
 });

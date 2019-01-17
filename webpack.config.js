@@ -66,7 +66,7 @@ module.exports = env => {
       historyApiFallback: true,
       publicPath: '/dist/',
       host: '0.0.0.0',
-      port: 9000,
+      port: 9005,
       disableHostCheck: true
     }
   };

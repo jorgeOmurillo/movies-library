@@ -8,7 +8,7 @@ import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
 import LoadingPage from './components/LoadingPage';
-import { startSetDistributors } from './actions/distributors.js';
+import { startSetMovies } from './actions/movies';
 
 const store = configureStore();
 
@@ -28,7 +28,7 @@ const renderApp = () => {
 
 ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
-store.dispatch(startSetDistributors()).then(() => {
+store.dispatch(startSetMovies()).then(() => {
   renderApp();
 
   if (history.location.pathname === '/') {

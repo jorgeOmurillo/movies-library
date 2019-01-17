@@ -2,9 +2,9 @@ const fs = require('fs');
 const mongoose = require('mongoose');
 
 //DB SCHEMA
-const distributorsSchema = new mongoose.Schema({
+const moviesSchema = new mongoose.Schema({
   genre: String,
   name: String,
 });
 
-module.exports = mongoose.model('Movies', distributorsSchema);
+module.exports = mongoose.model('Movies', moviesSchema);

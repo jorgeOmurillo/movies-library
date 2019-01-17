@@ -1,44 +1,35 @@
 const mongoose = require('mongoose');
-const Distributors = require('./models/Distributors');
+const Movies = require('./models/Movies');
 
 let data = [
   {
-    region: 'Southeast Asia',
-    name: 'Videonet',
-    sales: 'Ana',
-    op: 'Lydia',
-    logistics: 'Jane'
+    genre: 'Action',
+    movie: 'The Matrix',
   },
   {
-    region: 'South Asia',
-    name: 'Cubix Micro Systems',
-    sales: 'Hank',
-    op: 'Rachel',
-    logistics: 'Grace'
+    genre: 'Action',
+    movie: 'The Big Hit',
   },
   {
-    region: 'Middle East',
-    name: 'Global Distributors',
-    sales: 'Karim',
-    op: 'Kayla',
-    logistics: 'Jane'
+    genre: 'Action',
+    movie: 'Speed',
   }
 ];
 
 function seedDB() {
   // Remove all Campgrounds
-  Distributors.remove({}, function(err) {
+  Movies.remove({}, function(err) {
     if (err) {
       console.log(err);
     }
-    console.log('removed distributors!');
+    console.log('removed movies!');
     //add some campgrounds
     data.forEach(function(seed) {
-      Distributors.create(seed, function(err, distributor) {
+      Movies.create(seed, function(err, movie) {
         if (err) {
           console.log(err);
         } else {
-          console.log('added a distributor');
+          console.log('added a movie');
         }
       });
     });

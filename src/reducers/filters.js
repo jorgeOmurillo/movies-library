@@ -2,8 +2,8 @@
 
 const filtersReducerDefaultState = {
   text: '',
-  sortBy: 'region',
-  region: ''
+  sortBy: 'genre',
+  genre: ''
 };
 
 export default (state = filtersReducerDefaultState, action) => {
@@ -13,15 +13,15 @@ export default (state = filtersReducerDefaultState, action) => {
         ...state,
         text: action.text
       };
-    case 'FILTER_BY_REGION':
+    case 'FILTER_BY_GENRE':
       return {
         ...state,
         filterBy: action.filterBy
       };
-    case 'SET_REGION':
+    case 'SET_GENRE':
       return {
         ...state,
-        region: action.region
+        genre: action.genre
       };
     default:
       return state;

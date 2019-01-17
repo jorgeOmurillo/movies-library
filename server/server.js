@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Mongoose configuration
-const db_url = process.env.DATABASEURL || 'mongodb://localhost/distributors';
+const db_url = process.env.DATABASEURL || 'mongodb://localhost/movies';
 mongoose.connect(
   db_url,
   { useNewUrlParser: true }
@@ -75,7 +75,7 @@ app.get('*', (req, res) => {
 //});
 
 const _ip = process.env.IP || '0.0.0.0';
-const _port = process.env.PORT || 9000;
+const _port = process.env.PORT || 9005;
 
 app.listen(_port, _ip, () => {
   console.log(`Server is running at http://${_ip}:${_port}!`);
