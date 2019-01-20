@@ -6,7 +6,7 @@ const MovieListItem = ({ _id, genre, name }) => (
     className="list-item"
     to={{
       pathname: `/view/${_id}`,
-      state: { _id: _id, genre: genre, name: name }
+      state: { _id, genre, name }
     }}
   >
     <div>
