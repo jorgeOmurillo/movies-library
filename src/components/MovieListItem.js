@@ -1,19 +1,55 @@
 import React from 'react';
+import { Card, CardTitle, CardMedia } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
-const MovieListItem = ({ _id, genre, name }) => (
-  <Link
-    className="list-item"
-    to={{
-      pathname: `/view/${_id}`,
-      state: { _id, genre, name }
-    }}
-  >
-    <div>
-      <h3 className="list-item__title">{name}</h3>
-      <span className="list-item__sub-title">Genre: {genre} </span>
-    </div>
-  </Link>
-);
+const styles = {
+  cardMedia: {
+    maxHeight: 394,
+    overflow: 'hidden'
+  },
+  card: {
+    cursor: 'pointer',
+    height: 400,
+    overflow: 'hidden'
+  },
+  bgImage: {
+    width: '100%'
+  }
+};
 
-export default MovieListItem;
+export default class MovieListItem extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isMouseOver: false
+    };
+  }
+
+  render() {
+    const { _id, genre, name } = this.props;
+
+    return (
+      <Card
+        style={styles.card}
+        onMouseOver={() => this.setState({ isMouseOver: true })}
+        onMouseLeave={() => this.setState({ isMouseOver: false })}
+      >
+        <CardMedia
+          style={styles.cardMedia}
+          overlay={<CardTitle title={name} subtitle={genre} />}
+        >
+        </CardMedia>
+      </Card>
+    );
+  }
+}
+
+//<Link
+//className="list-item"
+//to={{
+//pathname: `/view/${this.props_id}`,
+//state: { _id, genre, name }
+//}}
+//>
+//</Link>

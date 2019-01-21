@@ -15,6 +15,7 @@
   "author": "Jorge Murillo",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^3.9.0",
     "axios": "^0.18.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
@@ -44,6 +45,7 @@
     "raf": "^3.4.1",
     "react": "^16.7.0",
     "react-addons-shallow-compare": "^15.6.2",
+    "react-bootstrap": "^0.32.4",
     "react-dates": "^12.7.1",
     "react-dom": "^16.7.0",
     "react-fontawesome": "^1.6.1",
