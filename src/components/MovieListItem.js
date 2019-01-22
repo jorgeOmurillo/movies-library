@@ -1,13 +1,9 @@
 import React from 'react';
-import { Card, CardTitle, CardMedia } from '@material-ui/core';
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
 import { Link } from 'react-router-dom';
 
 const styles = {
-  cardTitle: {
-    whiteSpace: 'nowrap',
-    textOverflow: 'ellipsis',
-    overflow: 'hidden'
-  },
   cardMedia: {
     maxHeight: 394,
     overflow: 'hidden'
@@ -25,37 +21,29 @@ const styles = {
 export default class MovieListItem extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      isMouseOver: false
-    };
   }
 
   render() {
     const { _id, genre, name, image_url } = this.props;
 
     return (
-      <Card
-        style={styles.card}
-        onMouseOver={() => this.setState({ isMouseOver: true })}
-        onMouseLeave={() => this.setState({ isMouseOver: false })}
+      <Link
+        className="list-item"
+        to={{
+          pathname: `/view/${_id}`,
+          state: {
+            _id,
+            name,
+            genre
+          }
+        }}
       >
-        <CardMedia
-          style={styles.cardMedia}
-          overlay={<CardTitle title={name} subtitle={genre} />}
-        >
-          <img style={styles.bgImage} src={image_url} />
-        </CardMedia>
-      </Card>
+        <Card style={styles.card}>
+          <CardMedia style={styles.cardMedia} image={image_url}>
+            <img style={styles.bgImage} src={image_url} />
+          </CardMedia>
+        </Card>
+      </Link>
     );
   }
 }
-
-//<Link
-//className="list-item"
-//to={{
-//pathname: `/view/${this.props_id}`,
-//state: { _id, genre, name }
-//}}
-//>
-//</Link>
