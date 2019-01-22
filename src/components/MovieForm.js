@@ -7,6 +7,7 @@ export default class MovieForm extends React.Component {
     this.state = {
       genre: props.genre ? props.movie.genre : '',
       name: props.name ? props.movie.name : '',
+      image_url: props.image_url ? props.movie.image_url : '',
       error: ''
     };
   }
@@ -21,20 +22,26 @@ export default class MovieForm extends React.Component {
     this.setState(() => ({ genre }));
   };
 
+  onImageUrlChange = e => {
+    let image_url = e.target.value;
+    this.setState(() => ({ image_url }));
+  };
+
   onSubmit = e => {
     e.preventDefault();
 
-    if (!this.state.name || !this.state.genre) {
+    if (!this.state.name || !this.state.genre || !this.state.image_url) {
       this.setState(() => ({
         error:
-          'Please provide a name and a genre for the movie.'
+          'Please provide a name, image, and a genre for the movie.'
       }));
-      return 'Please provide a name and a genre for the movie.';
+      return 'Please provide a name, image, and a genre for the movie.';
     } else {
       this.setState(() => ({ error: '' }));
       this.props.onSubmit({
         genre: this.state.genre,
         name: this.state.name,
+        image_url: this.state.image_url,
       });
     }
   };
@@ -60,6 +67,13 @@ export default class MovieForm extends React.Component {
           <option value="">Genre...</option>
           <option value="Action">Action</option>
         </select>
+        <input
+          type="text"
+          placeholder="Image URL"
+          className="text-input"
+          value={this.state.image_url}
+          onChange={this.onImageUrlChange}
+        />
         <div>
           <button className="button">Save Movie</button>
         </div>

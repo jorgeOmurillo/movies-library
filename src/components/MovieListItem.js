@@ -3,6 +3,11 @@ import { Card, CardTitle, CardMedia } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 const styles = {
+  cardTitle: {
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+    overflow: 'hidden'
+  },
   cardMedia: {
     maxHeight: 394,
     overflow: 'hidden'
@@ -27,7 +32,7 @@ export default class MovieListItem extends React.Component {
   }
 
   render() {
-    const { _id, genre, name } = this.props;
+    const { _id, genre, name, image_url } = this.props;
 
     return (
       <Card
@@ -39,6 +44,7 @@ export default class MovieListItem extends React.Component {
           style={styles.cardMedia}
           overlay={<CardTitle title={name} subtitle={genre} />}
         >
+          <img style={styles.bgImage} src={image_url} />
         </CardMedia>
       </Card>
     );

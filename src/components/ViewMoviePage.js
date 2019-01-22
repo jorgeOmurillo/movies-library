@@ -6,7 +6,8 @@ const ViewMoviePage = props => {
   const {
     _id,
     genre,
-    name
+    name,
+    image_url
   } = props.location.state;
   return (
     <div>
@@ -26,8 +27,10 @@ const ViewMoviePage = props => {
       <div className="content-container">
         <h3>Name:</h3>
         <p className="text-display">{name}</p>
-        <h3>Country:</h3>
+        <h3>Genre:</h3>
         <p className="text-display">{genre}</p>
+        <h3>Image:</h3>
+        <p className="text-display">{image_url}</p>
       </div>
     </div>
   );
