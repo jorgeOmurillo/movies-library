@@ -5,9 +5,9 @@ export default class MovieForm extends React.Component {
     super(props);
 
     this.state = {
-      genre: props.genre ? props.movie.genre : '',
-      name: props.name ? props.movie.name : '',
-      image_url: props.image_url ? props.movie.image_url : '',
+      genre: props.movie ? props.movie.genre : '',
+      name: props.movie ? props.movie.name : '',
+      image_url: props.movie ? props.movie.image_url : '',
       error: ''
     };
   }
@@ -32,8 +32,7 @@ export default class MovieForm extends React.Component {
 
     if (!this.state.name || !this.state.genre || !this.state.image_url) {
       this.setState(() => ({
-        error:
-          'Please provide a name, image, and a genre for the movie.'
+        error: 'Please provide a name, image, and a genre for the movie.'
       }));
       return 'Please provide a name, image, and a genre for the movie.';
     } else {
@@ -41,7 +40,7 @@ export default class MovieForm extends React.Component {
       this.props.onSubmit({
         genre: this.state.genre,
         name: this.state.name,
-        image_url: this.state.image_url,
+        image_url: this.state.image_url
       });
     }
   };
