@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
+import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const styles = {
@@ -15,6 +16,9 @@ const styles = {
   },
   bgImage: {
     width: '100%'
+  },
+  movieColumn: {
+    marginBottom: 20
   }
 };
 
@@ -28,7 +32,6 @@ export default class MovieListItem extends React.Component {
 
     return (
       <Link
-        className="list-item"
         to={{
           pathname: `/view/${_id}`,
           state: {
@@ -38,11 +41,15 @@ export default class MovieListItem extends React.Component {
           }
         }}
       >
-        <Card style={styles.card}>
-          <CardMedia style={styles.cardMedia} image={image_url}>
-            <img style={styles.bgImage} src={image_url} />
-          </CardMedia>
-        </Card>
+        <Row>
+          <Col style={styles.movieColumn} xs={12} sm={4} md={3} lg={3}>
+            <Card style={styles.card}>
+              <CardMedia style={styles.cardMedia} image={image_url}>
+                <img style={styles.bgImage} src={image_url} />
+              </CardMedia>
+            </Card>
+          </Col>
+        </Row>
       </Link>
     );
   }
