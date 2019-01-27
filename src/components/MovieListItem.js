@@ -31,26 +31,24 @@ export default class MovieListItem extends React.Component {
     const { _id, genre, name, image_url } = this.props;
 
     return (
-      <Link
-        to={{
-          pathname: `/view/${_id}`,
-          state: {
-            _id,
-            name,
-            genre
-          }
-        }}
-      >
-        <Row>
-          <Col style={styles.movieColumn} xs={12} sm={4} md={3} lg={3}>
-            <Card style={styles.card}>
-              <CardMedia style={styles.cardMedia} image={image_url}>
-                <img style={styles.bgImage} src={image_url} />
-              </CardMedia>
-            </Card>
-          </Col>
-        </Row>
-      </Link>
+      <Col style={styles.movieColumn} xs={12} sm={4} md={3} lg={3}>
+        <Link
+          to={{
+            pathname: `/view/${_id}`,
+            state: {
+              _id,
+              name,
+              genre
+            }
+          }}
+        >
+          <Card style={styles.card}>
+            <CardMedia style={styles.cardMedia} image={image_url}>
+              <img style={styles.bgImage} src={image_url} />
+            </CardMedia>
+          </Card>
+        </Link>
+      </Col>
     );
   }
 }
