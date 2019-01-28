@@ -29,8 +29,6 @@ const ViewMoviePage = props => {
         <p className="text-display">{name}</p>
         <h3>Genre:</h3>
         <p className="text-display">{genre}</p>
-        <h3>Image:</h3>
-        <p className="text-display">{image_url}</p>
       </div>
     </div>
   );

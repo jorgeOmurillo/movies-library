@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
+import CardHeader from '@material-ui/core/CardHeader';
 import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -43,6 +44,7 @@ export default class MovieListItem extends React.Component {
           }}
         >
           <Card style={styles.card}>
+            <CardHeader title={name} subheader={genre} />
             <CardMedia style={styles.cardMedia} image={image_url}>
               <img style={styles.bgImage} src={image_url} />
             </CardMedia>
