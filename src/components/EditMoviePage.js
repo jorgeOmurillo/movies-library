@@ -1,10 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import MovieForm from './MovieForm';
-import {
-  startEditMovie,
-  startRemoveMovie
-} from '../actions/movies';
+import { startEditMovie, startRemoveMovie } from '../actions/movies';
 
 export class EditMoviePage extends React.Component {
   constructor(props) {
@@ -36,10 +33,7 @@ export class EditMoviePage extends React.Component {
           </div>
         </div>
         <div className="content-container">
-          <MovieForm
-            movie={this.props.movie}
-            onSubmit={this.onSubmit}
-          />
+          <MovieForm movie={this.props.movie} onSubmit={this.onSubmit} />
           <button className="button button--secondary" onClick={this.onRemove}>
             Remove Movie
           </button>
@@ -50,14 +44,11 @@ export class EditMoviePage extends React.Component {
 }
 
 const mapStateToProps = (state, props) => ({
-  movie: state.movies.find(
-    movie => movie._id === props.match.params.id
-  )
+  movie: state.movies.find(movie => movie._id === props.match.params.id)
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
-  startEditMovie: (id, movie) =>
-    dispatch(startEditMovie(id, movie)),
+  startEditMovie: (id, movie) => dispatch(startEditMovie(id, movie)),
   startRemoveMovie: data => dispatch(startRemoveMovie(data))
 });
 

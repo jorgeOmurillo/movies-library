@@ -3,11 +3,14 @@ import React from 'react';
 export default class MovieForm extends React.Component {
   constructor(props) {
     super(props);
+    const year = 1900;
+    this.years = Array.from(new Array(120), (val, index) => index + year);
 
     this.state = {
       genre: props.movie ? props.movie.genre : '',
       name: props.movie ? props.movie.name : '',
       image_url: props.movie ? props.movie.image_url : '',
+      year: props.movie ? props.movie.year : '',
       error: ''
     };
   }
@@ -20,6 +23,11 @@ export default class MovieForm extends React.Component {
   onGenreChange = e => {
     let genre = e.target.value;
     this.setState(() => ({ genre }));
+  };
+
+  onYearChange = e => {
+    let year = e.target.value;
+    this.setState(() => ({ year }));
   };
 
   onImageUrlChange = e => {
@@ -40,7 +48,8 @@ export default class MovieForm extends React.Component {
       this.props.onSubmit({
         genre: this.state.genre,
         name: this.state.name,
-        image_url: this.state.image_url
+        image_url: this.state.image_url,
+        year: this.state.year
       });
     }
   };
@@ -58,23 +67,13 @@ export default class MovieForm extends React.Component {
           onChange={this.onNameChange}
         />
         <select
-          placeholder="Region"
+          placeholder="Genre"
           className="select"
           value={this.state.genre}
           onChange={this.onGenreChange}
         >
           <option value="">Genre...</option>
-          <option value="action">Action</option>
-          <option value="animation">Animation</option>
-          <option value="adventure">Adventure</option>
-          <option value="comedy">Comedy</option>
-          <option value="crime">Crime</option>
-          <option value="drama">Drama</option>
-          <option value="fantasy">Fantasy</option>
-          <option value="horror">Horror</option>
-          <option value="romance">Romance</option>
-          <option value="science_fiction">Science Fiction</option>
-          <option value="thriller">Thriller</option>
+          <option value="Action">Action</option>
         </select>
         <input
           type="text"
@@ -83,6 +82,18 @@ export default class MovieForm extends React.Component {
           value={this.state.image_url}
           onChange={this.onImageUrlChange}
         />
+        <select
+          placeholder="Year"
+          className="select"
+          value={this.state.year}
+          onChange={this.onYearChange}
+        >
+          {this.years.map((year, index) => (
+            <option key={`year${index}`} value={year}>
+              {year}
+            </option>
+          ))}
+        </select>
         <div>
           <button className="button">Save Movie</button>
         </div>

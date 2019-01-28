@@ -29,7 +29,7 @@ export default class MovieListItem extends React.Component {
   }
 
   render() {
-    const { _id, genre, name, image_url } = this.props;
+    const { _id, genre, name, image_url, year } = this.props;
 
     return (
       <Col style={styles.movieColumn} xs={12} sm={4} md={3} lg={3}>
@@ -39,15 +39,17 @@ export default class MovieListItem extends React.Component {
             state: {
               _id,
               name,
-              genre
+              genre,
+              image_url,
+              year
             }
           }}
         >
           <Card style={styles.card}>
-            <CardHeader title={name} subheader={genre} />
             <CardMedia style={styles.cardMedia} image={image_url}>
               <img style={styles.bgImage} src={image_url} />
             </CardMedia>
+            <CardHeader title={name} subheader={genre} />
           </Card>
         </Link>
       </Col>

@@ -11,8 +11,10 @@ export const startAddMovie = (movieData = {}) => {
     const {
       genre = '',
       name = '',
+      image_url = '',
+      year = '',
     } = movieData;
-    const movie = { genre, name };
+    const movie = { genre, name, image_url, year };
 
     return axios.post('/api/movies', movie).then(movie => {
       dispatch(
@@ -34,7 +36,7 @@ export const removeMovie = ({ id } = {}) => ({
 export const startRemoveMovie = ({ id } = {}) => {
   return dispatch => {
     return axios
-      .delete(`/api/movie/delete/${id}`)
+      .delete(`/api/movies/delete/${id}`)
       .then(() => {
         dispatch(removeMovie({ id }));
       })
