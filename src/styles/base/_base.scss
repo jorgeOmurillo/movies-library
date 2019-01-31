@@ -13,18 +13,19 @@ body {
   line-height: 1.6;
 }
 
-body > div > a,
-a:hover,
-a:visited {
-  text-decoration: none;
-}
-
 button {
   cursor: pointer;
 }
 
 button:disabled {
   cursor: default;
+}
+
+a,
+a:hover,
+a:visited {
+  color: white;
+  text-decoration: none;
 }
 
 .is-active {

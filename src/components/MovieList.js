@@ -14,17 +14,15 @@ export const MovieList = props => (
     </div>
     <Grid>
       <Row>
-        <Row>
-          {props.movies.length === 0 ? (
-            <div className="list-item list-item--message">
-              <span>No movies</span>
-            </div>
-          ) : (
-            props.movies.map(movie => {
-              return <MovieListItem key={movie._id} {...movie} />;
-            })
-          )}
-        </Row>
+        {props.movies.length === 0 ? (
+          <div className="list-item list-item--message--row">
+            <span>No movies</span>
+          </div>
+        ) : (
+          props.movies.map(movie => {
+            return <MovieListItem key={movie._id} {...movie} />;
+          })
+        )}
       </Row>
     </Grid>
   </div>

@@ -44,6 +44,18 @@
   }
 }
 
+.list-item--message--row {
+  display: flex;
+  flex: auto;
+  align-items: center;
+  color: $grey;
+  justify-content: center;
+  padding: $m-size;
+  &:hover {
+    background: none;
+  }
+}
+
 .list-item__title {
   margin: 0;
   word-break: break-all;
