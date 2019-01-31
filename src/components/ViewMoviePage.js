@@ -20,12 +20,24 @@ const ViewMoviePage = props => {
         </div>
       </div>
       <div className="content-container">
-        <h3>Name:</h3>
-        <p className="text-display">{name}</p>
-        <h3>Genre:</h3>
-        <p className="text-display">{genre}</p>
-        <h3>Year:</h3>
-        <p className="text-display">{year}</p>
+        <div className="movie_card">
+          <div className="info_section">
+            <div className="movie_header">
+              <img className="locandina" src={image_url} />
+              <h1>{name}</h1>
+              <h4>{year}, David Ayer</h4>
+              <span className="minutes">117 min</span>
+              <p className="type">{genre}</p>
+            </div>
+            <div className="movie_desc">
+              <p className="text">
+                Set in a world where fantasy creatures live side by side with
+                humans. A human cop is forced to work with an Orc to find a
+                weapon everyone is prepared to kill for.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
