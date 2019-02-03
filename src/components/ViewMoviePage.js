@@ -3,15 +3,21 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const ViewMoviePage = props => {
-  const { _id, genre, name, image_url, year } = props.location.state;
+  const {
+    _id,
+    genre,
+    name,
+    image_url,
+    year,
+    description
+  } = props.location.state;
   return (
     <div>
       <div className="page-header">
         <div className="content-container">
-          <h1 className="page-header__title">Current Movie</h1>
-          <div className="container_button__edit">
+          <div className="page-header__actions">
             <Link
-              className="button__edit"
+              className="button"
               to={{ pathname: `/edit/${_id}`, state: props.location.state }}
             >
               Edit
@@ -20,23 +26,19 @@ const ViewMoviePage = props => {
         </div>
       </div>
       <div className="content-container">
-        <div className="movie_card">
+        <div className="movie_card" id="bright">
           <div className="info_section">
             <div className="movie_header">
               <img className="locandina" src={image_url} />
               <h1>{name}</h1>
-              <h4>{year}, David Ayer</h4>
-              <span className="minutes">117 min</span>
+              <h4>{year}</h4>
               <p className="type">{genre}</p>
             </div>
             <div className="movie_desc">
-              <p className="text">
-                Set in a world where fantasy creatures live side by side with
-                humans. A human cop is forced to work with an Orc to find a
-                weapon everyone is prepared to kill for.
-              </p>
+              <p className="text">{description}</p>
             </div>
           </div>
+          <div className="blur_back bright_back" />
         </div>
       </div>
     </div>

@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Grid, Row, Col } from 'react-bootstrap';
 import MovieListItem from './MovieListItem';
 import selectMovies from '../selectors/selectMovies';
-import * as scrollHelpers from '../modules/common/scroll.helpers';
 
 export const MovieList = props => (
   <div className="content-container">

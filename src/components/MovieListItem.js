@@ -12,7 +12,7 @@ const styles = {
   },
   card: {
     cursor: 'pointer',
-    height: 400,
+    height: 330,
     overflow: 'hidden'
   },
   bgImage: {
@@ -29,7 +29,7 @@ export default class MovieListItem extends React.Component {
   }
 
   render() {
-    const { _id, genre, name, image_url, year } = this.props;
+    const { _id, genre, name, image_url, year, description } = this.props;
 
     return (
       <Col style={styles.movieColumn} xs={12} sm={4} md={3} lg={3}>
@@ -37,11 +37,7 @@ export default class MovieListItem extends React.Component {
           to={{
             pathname: `/view/${_id}`,
             state: {
-              _id,
-              name,
-              genre,
-              image_url,
-              year
+              ...this.props
             }
           }}
         >

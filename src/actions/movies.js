@@ -7,14 +7,15 @@ export const addMovie = movie => ({
 });
 
 export const startAddMovie = (movieData = {}) => {
-  return (dispatch) => {
+  return dispatch => {
     const {
       genre = '',
       name = '',
       image_url = '',
       year = '',
+      description = ''
     } = movieData;
-    const movie = { genre, name, image_url, year };
+    const movie = { genre, name, image_url, year, description };
 
     return axios.post('/api/movies', movie).then(movie => {
       dispatch(

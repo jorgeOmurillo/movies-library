@@ -10,7 +10,8 @@ export default class MovieForm extends React.Component {
       genre: props.movie ? props.movie.genre : '',
       name: props.movie ? props.movie.name : '',
       image_url: props.movie ? props.movie.image_url : '',
-      year: props.movie ? props.movie.year : '',
+      year: props.movie ? props.movie.year : '2019',
+      description: props.movie ? props.movie.description : '',
       error: ''
     };
   }
@@ -35,6 +36,11 @@ export default class MovieForm extends React.Component {
     this.setState(() => ({ image_url }));
   };
 
+  onDescriptionChange = e => {
+    let description = e.target.value;
+    this.setState(() => ({ description }));
+  };
+
   onSubmit = e => {
     e.preventDefault();
 
@@ -49,7 +55,8 @@ export default class MovieForm extends React.Component {
         genre: this.state.genre,
         name: this.state.name,
         image_url: this.state.image_url,
-        year: this.state.year
+        year: this.state.year,
+        description: this.state.description
       });
     }
   };
@@ -72,19 +79,26 @@ export default class MovieForm extends React.Component {
           value={this.state.genre}
           onChange={this.onGenreChange}
         >
-              <option value="">Genre...</option>
-              <option value="Action">Action</option>
-              <option value="Animation">Animation</option>
-              <option value="Adventure">Adventure</option>
-              <option value="Comedy">Comedy</option>
-              <option value="Crime">Crime</option>
-              <option value="Drama">Drama</option>
-              <option value="Fantasy">Fantasy</option>
-              <option value="Horror">Horror</option>
-              <option value="Romance">Romance</option>
-              <option value="Science Fiction">Science Fiction</option>
-              <option value="Thriller">Thriller</option>
+          <option value="2019">Genre...</option>
+          <option value="Action">Action</option>
+          <option value="Animation">Animation</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Crime">Crime</option>
+          <option value="Drama">Drama</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Horror">Horror</option>
+          <option value="Romance">Romance</option>
+          <option value="Science Fiction">Science Fiction</option>
+          <option value="Thriller">Thriller</option>
         </select>
+        <input
+          type="text"
+          placeholder="Description"
+          className="text-input"
+          value={this.state.description}
+          onChange={this.onDescriptionChange}
+        />
         <input
           type="text"
           placeholder="Image URL"

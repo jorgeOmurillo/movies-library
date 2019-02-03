@@ -7,7 +7,6 @@ export const MoviesSummary = ({ MovieCount }) => {
   return (
     <div className="page-header">
       <div className="content-container">
-        <h1 className="page-header__title">Current Movies</h1>
         <div className="page-header__actions">
           <Link className="button" to="/add">
             Add Movie
