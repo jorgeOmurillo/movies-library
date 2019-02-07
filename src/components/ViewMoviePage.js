@@ -30,9 +30,11 @@ const ViewMoviePage = props => {
           <div className="info_section">
             <div className="movie_header">
               <img className="locandina" src={image_url} />
-              <h1>{name}</h1>
-              <h4>{year}</h4>
-              <p className="type">{genre}</p>
+              <div className="movie_info">
+                <h1>{name}</h1>
+                <h4>{year}</h4>
+                <p className="type">{genre}</p>
+              </div>
             </div>
             <div className="movie_desc">
               <p className="text">{description}</p>

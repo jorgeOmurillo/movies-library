@@ -1,14 +1,11 @@
 # Movie Library App
 
-A personal movie library made with React, Redux, and MongoDB.
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+A personal movie library made with React, Redux, MongoDB, and Node.js.
+[Movie Library](https://my-movie-library-app.herokuapp.com/)
 
 ### Installing
 
-Run:
+To install the project dependencies, run:
 ```
 npm install
 ```
@@ -34,10 +31,6 @@ Explain what these tests test and why
 ```
 Give an example
 ```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
