@@ -25,7 +25,7 @@ npm start
 
 ## Running the tests
 
-ro execute tests with Jest, run:
+To execute tests with Jest, run:
 ```
 npm test -- --watchAll
 ```
